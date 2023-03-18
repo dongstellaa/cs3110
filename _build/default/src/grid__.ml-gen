@@ -2,3 +2,6 @@
 
 (** @canonical Grid.Move *)
 module Move = Grid__Move
+
+(** @canonical Grid.Ui *)
+module Ui = Grid__Ui

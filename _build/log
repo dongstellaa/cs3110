@@ -1,9 +1,9 @@
 # dune build
 # OCAMLPARAM: unset
 # Shared cache: disabled
-# Workspace root: /Users/evafarroha/Documents/GitHub/3110-final
+# Workspace root: /Users/stelladong/Documents/GitHub/3110-final
 # Auto-detected concurrency: 8
-$ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v/z4mlqbrd62vbv7g47kxbw77h0000gn/T/dune_255c20_output
+$ /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -config > /var/folders/v9/vh_p7klj5vncys9jm2sf16v40000gn/T/dune_b6a1eb_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -13,42 +13,44 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/Users/evafarroha/.opam/cs3110-2023sp/lib/toplevel"
-#  ; ocaml_bin = External "/Users/evafarroha/.opam/cs3110-2023sp/bin"
-#  ; ocaml = Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocaml"
-#  ; ocamlc = External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt"
+#      Some External "/Users/stelladong/.opam/cs3110-2022fa/lib/toplevel"
+#  ; ocaml_bin = External "/Users/stelladong/.opam/cs3110-2022fa/bin"
+#  ; ocaml = Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocaml"
+#  ; ocamlc = External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt"
 #  ; ocamlopt =
-#      Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt"
+#      Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt"
 #  ; ocamldep =
-#      Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamldep.opt"
+#      Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlmklib.opt"
+#      Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "DUNE_OCAML_HARDCODED" : "/Users/evafarroha/.opam/cs3110-2023sp/lib"
+#        { "DUNE_OCAML_HARDCODED" : "/Users/stelladong/.opam/cs3110-2022fa/lib"
 #        ; "DUNE_OCAML_STDLIB" :
-#            "/Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/evafarroha/Documents/GitHub/3110-final"
+#            "/Users/stelladong/.opam/cs3110-2022fa/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/stelladong/Documents/GitHub/3110-final"
 #        ; "INSIDE_DUNE" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/default"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/default"
+#        ; "MANPATH" :
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/install/default/lib"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/install/default/lib"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/install/default/lib/toplevel"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_paths = [ External "/Users/evafarroha/.opam/cs3110-2023sp/lib" ]
+#  ; findlib_paths = [ External "/Users/stelladong/.opam/cs3110-2022fa/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.14.0"
 #      ; standard_library_default =
-#          "/Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml"
-#      ; standard_library = "/Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml"
+#          "/Users/stelladong/.opam/cs3110-2022fa/lib/ocaml"
+#      ; standard_library = "/Users/stelladong/.opam/cs3110-2022fa/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
 #      ; c_compiler = "cc"
@@ -78,7 +80,7 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; native_c_libraries = [ "-lm" ]
 #      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
 #      ; cc_profile = []
-#      ; architecture = "arm64"
+#      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
@@ -94,8 +96,8 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "aarch64-apple-darwin21.5.0"
-#      ; target = "aarch64-apple-darwin21.5.0"
+#      ; host = "x86_64-apple-darwin22.2.0"
+#      ; target = "x86_64-apple-darwin22.2.0"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false
@@ -115,14 +117,15 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -o src/.grid.objs/byte/grid__.cmo -c -impl src/grid__.ml-gen)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamldep.opt -modules -impl src/move.ml) > _build/default/src/.grid.objs/move.ml.d
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamldep.opt -modules -impl src/grid.ml) > _build/default/src/.grid.objs/grid.ml.d
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid__Move.cmo -c -impl src/move.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid.cmo -c -impl src/grid.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cma src/.grid.objs/byte/grid__.cmo src/.grid.objs/byte/grid__Move.cmo src/.grid.objs/byte/grid.cmo)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o src/.grid.objs/native/grid__.cmx -c -impl src/grid__.ml-gen)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid__Move.cmx -c -impl src/move.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid.cmx -c -impl src/grid.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cmxa src/.grid.objs/native/grid__.cmx src/.grid.objs/native/grid__Move.cmx src/.grid.objs/native/grid.cmx)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I src -o src/grid.cmxs src/grid.cmxa)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -o src/.grid.objs/byte/grid__.cmo -c -impl src/grid__.ml-gen)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid__Move.cmo -c -impl src/move.ml)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid.cmo -c -impl src/grid.ml)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamldep.opt -modules -impl src/ui.ml) > _build/default/src/.grid.objs/ui.ml.d
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid__Ui.cmo -c -impl src/ui.ml)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cma src/.grid.objs/byte/grid__.cmo src/.grid.objs/byte/grid__Ui.cmo src/.grid.objs/byte/grid__Move.cmo src/.grid.objs/byte/grid.cmo)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid__Move.cmx -c -impl src/move.ml)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o src/.grid.objs/native/grid__.cmx -c -impl src/grid__.ml-gen)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid.cmx -c -impl src/grid.ml)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid__Ui.cmx -c -impl src/ui.ml)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cmxa src/.grid.objs/native/grid__.cmx src/.grid.objs/native/grid__Ui.cmx src/.grid.objs/native/grid__Move.cmx src/.grid.objs/native/grid.cmx)
+$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I src -o src/grid.cmxs src/grid.cmxa)
