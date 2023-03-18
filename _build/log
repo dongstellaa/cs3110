@@ -3,7 +3,7 @@
 # Shared cache: disabled
 # Workspace root: /Users/evafarroha/Documents/GitHub/3110-final
 # Auto-detected concurrency: 8
-$ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v/z4mlqbrd62vbv7g47kxbw77h0000gn/T/dune_32b0e1_output
+$ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v/z4mlqbrd62vbv7g47kxbw77h0000gn/T/dune_255c20_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -115,11 +115,14 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.main.eobjs/byte -no-alias-deps -opaque -o test/.main.eobjs/byte/dune__exe__Main.cmi -c -intf test/main.mli)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -o src/.grid.objs/byte/grid.cmo -c -impl src/grid.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cma src/.grid.objs/byte/grid.cmo)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.main.eobjs/byte -I test/.main.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.main.eobjs/native/dune__exe__Main.cmx -c -impl test/main.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -o src/.grid.objs/native/grid.cmx -c -impl src/grid.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cmxa src/.grid.objs/native/grid.cmx)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -o src/.grid.objs/byte/grid__.cmo -c -impl src/grid__.ml-gen)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamldep.opt -modules -impl src/move.ml) > _build/default/src/.grid.objs/move.ml.d
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamldep.opt -modules -impl src/grid.ml) > _build/default/src/.grid.objs/grid.ml.d
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid__Move.cmo -c -impl src/move.ml)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I src/.grid.objs/byte -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/byte/grid.cmo -c -impl src/grid.ml)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cma src/.grid.objs/byte/grid__.cmo src/.grid.objs/byte/grid__Move.cmo src/.grid.objs/byte/grid.cmo)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o src/.grid.objs/native/grid__.cmx -c -impl src/grid__.ml-gen)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid__Move.cmx -c -impl src/move.ml)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.grid.objs/byte -I src/.grid.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Grid__ -o src/.grid.objs/native/grid.cmx -c -impl src/grid.ml)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o src/grid.cmxa src/.grid.objs/native/grid__.cmx src/.grid.objs/native/grid__Move.cmx src/.grid.objs/native/grid.cmx)
 $ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I src -o src/grid.cmxs src/grid.cmxa)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/main.exe test/.main.eobjs/native/dune__exe__Main.cmx)
