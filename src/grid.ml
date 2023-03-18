@@ -1,1 +1,2 @@
-type grid = string list list
+(* type grid = string list list *)
+
