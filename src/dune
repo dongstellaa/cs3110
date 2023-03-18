@@ -1,2 +1,2 @@
 (library
- (name 2048))
+ (name grid))
