@@ -1,6 +1,6 @@
-type grid = string list list
+type grid = int list list
 
-let board : grid = [[""]]
+let board : grid = [[0]]
 
 let left_shift_no_add row = 
   let rec shift_helper acc = function

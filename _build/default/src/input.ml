@@ -1,6 +1,6 @@
 open Move
 
-type act = Move of move | Invalid
+type action = Move of move | Invalid
 
 let key_to_action = function
   | "w" -> Move Up
@@ -9,4 +9,10 @@ let key_to_action = function
   | "d" -> Move Right
   | _ -> Invalid
 
-let action () = read_line () |> key_to_action
+(* let input_to_action () = read_line () |> key_to_action *)
+
+let grid_action input input_grid = 
+  let a = key_to_action input in
+  match a with
+  | Move m -> move_grid m input_grid
+  | Invalid -> failwith "not implemented"
