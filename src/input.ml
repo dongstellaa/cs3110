@@ -1,6 +1,6 @@
 open Move
 
-type act = Move of move | Invalid
+type action = Move of move | Invalid
 
 let key_to_action = function
   | "w" -> Move Up

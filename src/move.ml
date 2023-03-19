@@ -5,8 +5,8 @@ exception NotImplemented
 
 let move m =
   let grid = match m with
-  | Left -> Grid.left_shift_row
-  | Right -> Grid.right_shift_row
+  | Left -> Grid.left_shift_grid
+  | Right -> Grid.right_shift_grid
   | _ -> failwith "not implemented"
   in
-  Ui.output grid
+  (Ui.output grid)

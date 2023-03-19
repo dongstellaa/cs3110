@@ -1,0 +1,1 @@
+let () = Input.action ()

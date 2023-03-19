@@ -21,7 +21,11 @@ let left_shift_row row =
   in
   shift_helper [] row
 
+let left_shift_grid grid = List.map left_shift_row grid
+
 let move_to_four row = (left_shift_row row ) @ List.init (4 - (List.length row)) (fun _ ->0)
 
 let right_shift_row row = 
   (List.rev row) |> left_shift_row |> List.rev
+
+let right_shift_grid grid = List.map right_shift_row grid
