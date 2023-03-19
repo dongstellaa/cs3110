@@ -3,6 +3,9 @@
 (** @canonical Grid.Input *)
 module Input = Grid__Input
 
+(** @canonical Grid.Main *)
+module Main = Grid__Main
+
 (** @canonical Grid.Move *)
 module Move = Grid__Move
 

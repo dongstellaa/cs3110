@@ -9,4 +9,4 @@ let move m =
   | Right -> Grid.right_shift_row
   | _ -> failwith "not implemented"
   in
-  Ui.output
+  Ui.output grid
