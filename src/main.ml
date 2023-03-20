@@ -30,4 +30,3 @@ let rec user_input grid () =
   in user_input_helper grid
 
 let () = user_input test_grid_1 ()
-
