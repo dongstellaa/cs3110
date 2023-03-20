@@ -35,11 +35,11 @@ let left_shift row =
 
 let right_shift row =
   match List.length (delete_zeros row) with
-  | 0 -> List.rev (delete_zeros row @ [ 0; 0; 0; 0 ])
-  | 1 -> List.rev (delete_zeros row @ [ 0; 0; 0 ])
-  | 2 -> List.rev (delete_zeros row @ [ 0; 0 ])
-  | 3 -> List.rev (delete_zeros row @ [ 0 ])
-  | _ -> List.rev (delete_zeros row @ [])
+  | 0 -> [ 0; 0; 0; 0 ] @ List.rev (delete_zeros row)
+  | 1 -> [ 0; 0; 0 ] @ List.rev (delete_zeros row)
+  | 2 -> [ 0; 0 ] @ List.rev (delete_zeros row)
+  | 3 -> [ 0 ] @ List.rev (delete_zeros row)
+  | _ -> List.rev (delete_zeros row)
 
 let left_shift_grid grid = List.map left_shift grid
 let right_shift_grid grid = List.map right_shift grid
