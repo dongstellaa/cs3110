@@ -4,6 +4,15 @@ let test_grid =
   [0; 0; 0; 0];
   [2; 0; 2; 2] ]
 
-let () = print_endline "Press w, a, s, d to play";
+let rec user_input () = 
+  print_endline "Press w, a, s, d to play or quit to exit:";
   let input = read_line () in 
-  Input.grid_action input test_grid
+  if input = "quit" then
+    print_endline "quitting 2048"
+  else begin
+    Input.grid_action input test_grid;
+    user_input ()
+  end
+
+let () = user_input ()
+
