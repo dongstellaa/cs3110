@@ -1,14 +1,17 @@
 (* let test_grid_1 =
    [ [ 2; 0; 2; 0 ]; [ 4; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 2; 0; 2; 2 ] ] *)
 
-let test_grid_2 =
-  [ [ 0; 0; 4; 8 ]; [ 4; 2; 0; 8 ]; [ 0; 2; 0; 0 ]; [ 16; 0; 4; 8 ] ]
+(* let test_grid_2 =
+   [ [ 0; 0; 4; 8 ]; [ 4; 2; 0; 8 ]; [ 0; 2; 0; 0 ]; [ 16; 0; 4; 8 ] ] *)
 
 (* let test_grid_3 =
    [[1024; 1024; 0; 0];
    [0; 0; 0; 0];
    [0; 0; 0; 0];
    [0; 0; 0; 0]] *)
+
+let test_grid_4 =
+  [ [ 2; 2; 0; 0 ]; [ 2; 2; 0; 4 ]; [ 2; 2; 4; 8 ]; [ 0; 0; 0; 0 ] ]
 
 let user_input grid () =
   print_endline "Press w, a, s, d to play or quit to exit:";
@@ -23,4 +26,4 @@ let user_input grid () =
   in
   user_input_helper grid
 
-let () = user_input test_grid_2 ()
+let () = user_input test_grid_4 ()
