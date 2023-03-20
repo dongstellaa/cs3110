@@ -3,14 +3,13 @@ type grid = string list list
 let board : grid = [ [ "" ] ]
 
 let finish_multiplier_tail row =
-  List.rev
-    (let rec shift_helper acc = function
-       | [] -> acc
-       | h :: tl when h = 0 -> shift_helper acc tl
-       | h :: tl when acc = [] -> shift_helper [ h ] tl
-       | h :: tl -> shift_helper (h :: acc) tl
-     in
-     shift_helper [] row)
+  let rec shift_helper acc = function
+    | [] -> acc
+    | h :: tl when h = 0 -> shift_helper acc tl
+    | h :: tl when acc = [] -> shift_helper [ h ] tl
+    | h :: tl -> shift_helper (h :: acc) tl
+  in
+  shift_helper [] row
 
 let delete_zeros row =
   let rec shift_helper acc = function
