@@ -25,6 +25,7 @@ let user_input grid () =
       print_endline "quitting 2048"
     else begin
       let new_grid = Input.grid_action input grid in
+      Ui.output new_grid;
       user_input_helper new_grid 
     end
   in user_input_helper grid

@@ -3,7 +3,7 @@
 # Shared cache: disabled
 # Workspace root: /Users/stelladong/Documents/GitHub/3110-final
 # Auto-detected concurrency: 8
-$ /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -config > /var/folders/v9/vh_p7klj5vncys9jm2sf16v40000gn/T/dune_0d383f_output
+$ /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -config > /var/folders/v9/vh_p7klj5vncys9jm2sf16v40000gn/T/dune_81e071_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -117,6 +117,3 @@ $ /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -config > /var/folders/v9
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamldep.opt -modules -impl src/main.ml) > _build/default/src/.main.eobjs/main.ml.d
-$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I src/.main.eobjs/byte -I src/.main.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o src/.main.eobjs/native/dune__exe__Main.cmx -c -impl src/main.ml)
-$ (cd _build/default && /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o src/main.exe src/.main.eobjs/native/dune__exe.cmx src/.main.eobjs/native/dune__exe__Grid.cmx src/.main.eobjs/native/dune__exe__Move.cmx src/.main.eobjs/native/dune__exe__Input.cmx src/.main.eobjs/native/dune__exe__Ui.cmx src/.main.eobjs/native/dune__exe__Main.cmx)
