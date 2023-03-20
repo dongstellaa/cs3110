@@ -1,2 +1,3 @@
-(library
- (name src))
+(executable
+ (name main)
+ (modules grid ui move input main))
