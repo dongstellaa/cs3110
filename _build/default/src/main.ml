@@ -1,16 +1,16 @@
-let test_grid_1 = 
+(* let test_grid_1 = 
   [[2; 0; 2; 0]; 
   [4; 0; 0; 0];
   [0; 0; 0; 0];
-  [2; 0; 2; 2] ]
+  [2; 0; 2; 2] ] *)
 
-(* let test_grid_2 = 
+let test_grid_2 = 
   [[0; 0; 4; 8]; 
   [4; 2; 0; 8];
   [0; 2; 0; 0];
   [16; 0; 4; 8]]
 
-let test_grid_3 = 
+(* let test_grid_3 = 
   [[1024; 1024; 0; 0];
   [0; 0; 0; 0];
   [0; 0; 0; 0];
@@ -30,5 +30,5 @@ let user_input grid () =
     end
   in user_input_helper grid
 
-let () = user_input test_grid_1 ()
+let () = user_input test_grid_2 ()
 
