@@ -5,7 +5,13 @@ let middle_line = "├────────┼────────┼─�
 let bottom_line = "└────────┴────────┴────────┴────────┘"
 
 let build_row row =
-  let elem_strings = List.map (fun elem -> Printf.sprintf "│ %6d " elem) row in
+  let elem_strings =
+    List.map
+      (fun elem ->
+        if elem = 0 then Printf.sprintf "│        "
+        else Printf.sprintf "│ %6d " elem)
+      row
+  in
   String.concat "" elem_strings ^ "│"
 
 let output grid =
