@@ -25,6 +25,7 @@ let user_input grid () =
     else
       let new_grid = Input.grid_action input grid in
       Ui.output new_grid;
+      print_endline "Press w, a, s, d to play or q to exit:";
       user_input_helper new_grid
   in
   user_input_helper grid
