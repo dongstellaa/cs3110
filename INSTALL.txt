@@ -1,9 +1,9 @@
 To Run 2048:
 - In your powershell, go to the root directory of the folder.
 - Run dune build
-- Then run: ./_build/default/src/main.exe
+- Then run: make play
 - Currently only the left and right controls work (a and d), and quitting! The
 board also doesn't add new numbers, so we've created multiple working grids in 
-src/main.ml if you'd like to change which grid is run in line 32. Or make your own.
+src/main.ml if you'd like to change which grid is run (by commenting out the others). Or make your own.
 
 ty!
