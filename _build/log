@@ -1,9 +1,9 @@
 # dune exec ./_build/default/src/main.exe
 # OCAMLPARAM: unset
 # Shared cache: disabled
-# Workspace root: /Users/evafarroha/Documents/GitHub/3110-final
+# Workspace root: /Users/stelladong/Documents/GitHub/3110-final
 # Auto-detected concurrency: 8
-$ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v/z4mlqbrd62vbv7g47kxbw77h0000gn/T/dune_37fbe8_output
+$ /Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt -config > /var/folders/v9/vh_p7klj5vncys9jm2sf16v40000gn/T/dune_6a76a3_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -13,42 +13,44 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #  ; fdo_target_exe = None
 #  ; build_dir = "default"
 #  ; toplevel_path =
-#      Some External "/Users/evafarroha/.opam/cs3110-2023sp/lib/toplevel"
-#  ; ocaml_bin = External "/Users/evafarroha/.opam/cs3110-2023sp/bin"
-#  ; ocaml = Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocaml"
-#  ; ocamlc = External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt"
+#      Some External "/Users/stelladong/.opam/cs3110-2022fa/lib/toplevel"
+#  ; ocaml_bin = External "/Users/stelladong/.opam/cs3110-2022fa/bin"
+#  ; ocaml = Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocaml"
+#  ; ocamlc = External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamlc.opt"
 #  ; ocamlopt =
-#      Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt"
+#      Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamlopt.opt"
 #  ; ocamldep =
-#      Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamldep.opt"
+#      Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamldep.opt"
 #  ; ocamlmklib =
-#      Ok External "/Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlmklib.opt"
+#      Ok External "/Users/stelladong/.opam/cs3110-2022fa/bin/ocamlmklib.opt"
 #  ; env =
 #      map
-#        { "DUNE_OCAML_HARDCODED" : "/Users/evafarroha/.opam/cs3110-2023sp/lib"
+#        { "DUNE_OCAML_HARDCODED" : "/Users/stelladong/.opam/cs3110-2022fa/lib"
 #        ; "DUNE_OCAML_STDLIB" :
-#            "/Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml"
-#        ; "DUNE_SOURCEROOT" : "/Users/evafarroha/Documents/GitHub/3110-final"
+#            "/Users/stelladong/.opam/cs3110-2022fa/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/stelladong/Documents/GitHub/3110-final"
 #        ; "INSIDE_DUNE" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/default"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/default"
+#        ; "MANPATH" :
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/bin"
 #        ; "OCAMLFIND_IGNORE_DUPS_IN" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/install/default/lib"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/lib"
 #        ; "OCAMLPATH" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/install/default/lib"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/lib"
 #        ; "OCAMLTOP_INCLUDE_PATH" :
-#            "/Users/evafarroha/Documents/GitHub/3110-final/_build/install/default/lib/toplevel"
+#            "/Users/stelladong/Documents/GitHub/3110-final/_build/install/default/lib/toplevel"
 #        ; "OCAML_COLOR" : "always"
 #        ; "OPAMCOLOR" : "always"
 #        }
-#  ; findlib_paths = [ External "/Users/evafarroha/.opam/cs3110-2023sp/lib" ]
+#  ; findlib_paths = [ External "/Users/stelladong/.opam/cs3110-2022fa/lib" ]
 #  ; arch_sixtyfour = true
 #  ; natdynlink_supported = true
 #  ; supports_shared_libraries = true
 #  ; ocaml_config =
 #      { version = "4.14.0"
 #      ; standard_library_default =
-#          "/Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml"
-#      ; standard_library = "/Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml"
+#          "/Users/stelladong/.opam/cs3110-2022fa/lib/ocaml"
+#      ; standard_library = "/Users/stelladong/.opam/cs3110-2022fa/lib/ocaml"
 #      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
 #      ; ccomp_type = "cc"
 #      ; c_compiler = "cc"
@@ -78,7 +80,7 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; native_c_libraries = [ "-lm" ]
 #      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
 #      ; cc_profile = []
-#      ; architecture = "arm64"
+#      ; architecture = "amd64"
 #      ; model = "default"
 #      ; int_size = 63
 #      ; word_size = 64
@@ -94,8 +96,8 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; os_type = "Unix"
 #      ; default_executable_name = "a.out"
 #      ; systhread_supported = true
-#      ; host = "aarch64-apple-darwin21.5.0"
-#      ; target = "aarch64-apple-darwin21.5.0"
+#      ; host = "x86_64-apple-darwin22.2.0"
+#      ; target = "x86_64-apple-darwin22.2.0"
 #      ; profiling = false
 #      ; flambda = false
 #      ; spacetime = false

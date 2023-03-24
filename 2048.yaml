@@ -1,0 +1,23 @@
+---
+# Members of your group.
+group:
+  - name: Stella Dong
+    netid: ssd74
+  - name: Eva Farroha
+    netid: edf55
+# Your PM.
+pm:
+  name: Jessica Wu
+  netid: jw877
+# Set to false if you don't want your gallery entry to be public.
+publish: true
+# Pithy title
+title: "2048 Game Simulator"
+# OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
+git-repo: "https://github.coecis.cornell.edu/ssd74/3110-final"
+# If you have no demo screencast, replace the url string with an empty string ""
+demo-video-url: "https://www.youtube.com/watch?v=LeI-4Zp4Kjo"
+# Write a short, attention-grabbing description of your project.
+desc: >
+  Our project is 2048 but with a twist. 2048 gets boring when you play it over time, so we decided to change it up. You can play the game as normal, but we also added levels for increased difficulty. The user can use their keyboard to induce movement of the gameboard. 
+
