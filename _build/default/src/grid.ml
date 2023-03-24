@@ -1,7 +1,3 @@
-type grid = string list list
-
-let board : grid = [ [ "" ] ]
-
 let finish_multiplier_tail row =
   let rec shift_helper acc = function
     | [] -> acc
