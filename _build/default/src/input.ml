@@ -1,4 +1,4 @@
-open Move
+open Game
 
 type action = Move of move | Invalid
 

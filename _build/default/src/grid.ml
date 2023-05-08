@@ -1,3 +1,5 @@
+let score = ref 0
+
 let finish_multiplier_tail row =
   let rec shift_helper acc = function
     | [] -> acc
@@ -13,6 +15,7 @@ let delete_zeros row =
     | h :: tl when h = 0 -> shift_helper acc tl
     | h :: tl when acc = [] -> shift_helper [ h ] tl
     | h :: tl when h = List.hd acc ->
+        score := !score + h;
         finish_multiplier_tail (shift_helper (((2 * h) :: List.tl acc) @ tl) [])
     | h :: tl -> shift_helper (h :: acc) tl
   in

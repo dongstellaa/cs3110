@@ -20,3 +20,5 @@ val left_shift_grid : int list list -> int list list
 val right_shift_grid : int list list -> int list list
 (** [right_shift_grid g] is the int list list that has shifted all rows to the
     right, summing equal values. *)
+
+val score : int ref

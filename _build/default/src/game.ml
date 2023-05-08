@@ -1,6 +1,8 @@
 (*here we do moving elements*)
 type move = Up | Down | Left | Right
 
+let score = ref 0
+
 let move_grid m input_grid =
   match m with
   | Left -> Grid.left_shift_grid input_grid

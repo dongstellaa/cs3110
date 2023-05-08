@@ -20,3 +20,7 @@ val left_shift_grid : int list list -> int list list
 val right_shift_grid : int list list -> int list list
 (** [right_shift_grid g] is the int list list that has shifted all rows to the
     right, summing equal values. *)
+
+val score : int ref
+(** [score] represents the score of the current game. When two numbers are
+        merged, the resulting sum is added the the score. *)
