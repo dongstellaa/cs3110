@@ -1,1 +1,1 @@
-src/main.ml: Grid Input Ui
+src/main.ml: Game Grid Input Ui

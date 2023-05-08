@@ -1,3 +1,7 @@
+val score : int ref
+(** [score] represents the score of the current game. When two numbers are
+    merged, the resulting sum is added the the score. *)
+
 val delete_zeros : int list -> int list
 (** [delete_zeros r] is the int list resulted from shifting all the values
     of the list to the left and summing equal values.
@@ -21,4 +25,6 @@ val right_shift_grid : int list list -> int list list
 (** [right_shift_grid g] is the int list list that has shifted all rows to the
     right, summing equal values. *)
 
-val score : int ref
+val add_tile : int list list -> int list list
+(** [add_tile g] is the int list list with a randomly generated 2 or 4 in a
+    randomly selected place, replacing a 0.*)

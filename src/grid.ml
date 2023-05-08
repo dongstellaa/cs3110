@@ -48,3 +48,23 @@ let right_shift row =
 
 let left_shift_grid grid = List.map left_shift grid
 let right_shift_grid grid = List.map right_shift grid
+
+let add_tile (board : int list list) : int list list =
+  Random.self_init ();
+  let empty_tiles = ref [] in
+  List.iteri
+    (fun i row ->
+      List.iteri
+        (fun j tile -> if tile = 0 then empty_tiles := (i, j) :: !empty_tiles)
+        row)
+    board;
+  if List.length !empty_tiles = 0 then board
+  else
+    let i, j = List.nth !empty_tiles (Random.int (List.length !empty_tiles)) in
+    let new_tile = if Random.int 10 < 9 then 2 else 4 in
+    List.mapi
+      (fun x row ->
+        if x = i then
+          List.mapi (fun y tile -> if y = j then new_tile else tile) row
+        else row)
+      board
