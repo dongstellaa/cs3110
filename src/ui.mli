@@ -1,3 +1,9 @@
+val start_game_cat : string
+(** A string of ascii characters that form the start game cat *)
+
+val end_game_cat : string
+(** A string of ascii characters that form the end game cat *)
+
 val top_line : string
 (** A string of ascii characters that make up the top of the table. *)
 
