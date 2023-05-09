@@ -46,8 +46,19 @@ let right_shift row =
   | 3 -> [ 0 ] @ delete_zeros row
   | _ -> delete_zeros row
 
+let transpose (board : int list list) : int list list =
+  let rows = List.length board in
+  let cols = List.length (List.hd board) in
+  List.init cols (fun j ->
+      List.init rows (fun i -> List.nth (List.nth board i) j))
+
 let left_shift_grid grid = List.map left_shift grid
 let right_shift_grid grid = List.map right_shift grid
+let up_shift_grid grid = grid |> transpose |> left_shift_grid |> transpose
+
+let down_shift_grid grid =
+  grid |> List.map List.rev |> transpose |> left_shift_grid |> transpose
+  |> List.map List.rev
 
 let add_tile (board : int list list) : int list list =
   Random.self_init ();

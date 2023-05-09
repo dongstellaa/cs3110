@@ -9,7 +9,8 @@ let move_grid m input_grid =
     match m with
     | Left -> Grid.left_shift_grid input_grid
     | Right -> Grid.right_shift_grid input_grid
-    | _ -> failwith "not implemented"
+    | Up -> Grid.up_shift_grid input_grid
+    | Down -> Grid.down_shift_grid input_grid
   in
   Grid.add_tile grid'
 

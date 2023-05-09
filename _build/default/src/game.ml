@@ -9,7 +9,8 @@ let move_grid m input_grid =
     match m with
     | Left -> Grid.left_shift_grid input_grid
     | Right -> Grid.right_shift_grid input_grid
-    | _ -> failwith "not implemented"
+    | Up -> Grid.up_shift_grid input_grid
+    | Down -> Grid.down_shift_grid input_grid
   in
   Grid.add_tile grid'
 
@@ -39,6 +40,8 @@ let init_grid =
 let check_win gm input_grid =
   match !gm with
   | Tile ->
-      List.exists (fun row -> List.exists (fun tile -> tile = 4) row) input_grid
-  | Score -> !Grid.score >= 4
+      List.exists
+        (fun row -> List.exists (fun tile -> tile = 2048) row)
+        input_grid
+  | Score -> !Grid.score >= 1000000
   | Unselected -> failwith "check win"
