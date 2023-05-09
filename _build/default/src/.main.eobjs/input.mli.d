@@ -1,1 +1,1 @@
-src/input.mli:
+src/input.mli: Game

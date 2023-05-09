@@ -1,5 +1,6 @@
 let start_game_cat =
-  "             *     ,MMM8&&&.            *\n\
+  "\n\n\
+  \             *     ,MMM8&&&.            *\n\
   \                  MMMM88&&&&&    .\n\
   \                 MMMM88&&&&&&&\n\
   \       *         MMM88&&&&&&&&\n\
@@ -26,7 +27,7 @@ let start_game_cat =
   \   "
 
 let end_game_cat =
-  "you beat 2048! :)\n\
+  "you have beat the game! :)\n\
   \ \n\
   \             *     ,MMM8&&&.            *\n\
   \                  MMMM88&&&&&    .\n\

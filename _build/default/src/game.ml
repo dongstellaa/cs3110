@@ -1,5 +1,8 @@
 (*here we do moving elements*)
 type move = Up | Down | Left | Right
+type gamemode = Score | Tile | Unselected
+
+let gamemode_type = ref Unselected
 
 let move_grid m input_grid =
   let grid' =
@@ -11,6 +14,7 @@ let move_grid m input_grid =
   Grid.add_tile grid'
 
 let init_grid =
+  Random.self_init ();
   let empty_row = List.init 4 (fun _ -> 0) in
   let empty_board = List.init 4 (fun _ -> empty_row) in
   let rec add_tile n board =
@@ -31,3 +35,10 @@ let init_grid =
       else add_tile n board
   in
   add_tile 2 empty_board
+
+let check_win gm input_grid =
+  match !gm with
+  | Tile ->
+      List.exists (fun row -> List.exists (fun tile -> tile = 4) row) input_grid
+  | Score -> !Grid.score >= 4
+  | Unselected -> failwith "check win"

@@ -8,3 +8,6 @@ val key_to_action : string -> action
 val grid_action : string -> int list list -> int list list
 (** [grid_action i g] is the int list list after performing the correct action
     on g indicated by i*)
+
+val key_to_gm : string -> Game.gamemode
+val pick_gamemode : string -> unit
