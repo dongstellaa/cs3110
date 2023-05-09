@@ -1,7 +1,7 @@
 let run_game grid () =
   print_endline Ui.start_game_cat;
   print_endline
-    "Press s to play the Score gamemode (reach 1,000,000 points to win)!\n\
+    "Press s to play the Score gamemode (reach 69,000 points to win)!\n\
      Press t to play for the 2048 tile! \n\
      Press anything else for unlimited play!";
   let input = read_line () in
