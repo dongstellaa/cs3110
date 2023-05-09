@@ -39,6 +39,8 @@ let init_grid =
 let check_win gm input_grid =
   match !gm with
   | Tile ->
-      List.exists (fun row -> List.exists (fun tile -> tile = 4) row) input_grid
-  | Score -> !Grid.score >= 4
+      List.exists
+        (fun row -> List.exists (fun tile -> tile = 2048) row)
+        input_grid
+  | Score -> !Grid.score >= 1000000
   | Unselected -> failwith "check win"
