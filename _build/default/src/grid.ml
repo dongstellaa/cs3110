@@ -1,23 +1,26 @@
 let score = ref 0
 
-let finish_multiplier_tail row =
-  let rec shift_helper acc = function
-    | [] -> acc
-    | h :: tl when h = 0 -> shift_helper acc tl
-    | h :: tl when acc = [] -> shift_helper [ h ] tl
-    | h :: tl -> shift_helper (h :: acc) tl
-  in
-  shift_helper [] row
+(* let finish_multiplier_tail row =
+   let rec shift_helper acc = function
+     | [] -> acc
+     | h :: tl when h = 0 -> shift_helper acc tl
+     | h :: tl when acc = [] -> shift_helper [ h ] tl
+     | h :: tl -> shift_helper (h :: acc) tl
+   in
+   shift_helper [] row *)
 
 let delete_zeros row =
-  let rec shift_helper acc = function
+  let rec shift_helper acc r =
+    match r with
     | [] -> acc
     | h :: tl when h = 0 -> shift_helper acc tl
     | h :: tl when acc = [] -> shift_helper [ h ] tl
-    | h :: tl when h = List.hd acc ->
+    | h :: tl when h = (acc |> List.rev |> List.hd) ->
         score := !score + h;
-        finish_multiplier_tail (shift_helper (((2 * h) :: List.tl acc) @ tl) [])
-    | h :: tl -> shift_helper (h :: acc) tl
+        shift_helper
+          ((acc |> List.rev |> List.tl |> List.rev) @ [ 2 * h ] @ tl)
+          []
+    | h :: tl -> shift_helper (acc @ [ h ]) tl
   in
   shift_helper [] row
 
@@ -55,10 +58,9 @@ let transpose (board : int list list) : int list list =
 let left_shift_grid grid = List.map left_shift grid
 let right_shift_grid grid = List.map right_shift grid
 let up_shift_grid grid = grid |> transpose |> left_shift_grid |> transpose
-
-let down_shift_grid grid =
-  grid |> List.map List.rev |> transpose |> left_shift_grid |> transpose
-  |> List.map List.rev
+let down_shift_grid grid = grid |> transpose |> right_shift_grid |> transpose
+(* grid |> List.map List.rev |> transpose |> left_shift_grid |> transpose
+   |> List.map List.rev *)
 
 let add_tile (board : int list list) : int list list =
   Random.self_init ();
