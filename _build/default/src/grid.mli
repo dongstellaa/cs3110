@@ -4,18 +4,28 @@ val score : int ref
 
 val delete_zeros : int list -> int list
 (** [delete_zeros r] is the int list resulted from shifting all the values
-       of the list to the left and summing equal values.
-       Example: [delete_zeros [2; 0; 2; 4] = [4;4].] *)
+       of the list to the left.
+       Example: [delete_zeros [2; 0; 2; 4] = [2; 2;4].] *)
+
+val add_right : int list -> int list
+(** [add_right r] is the int list resulted from adding equal values
+       of the deleted 0s list to the right.
+       Example: [delete_zeros [2; 2; 2] = [ 2;4].] *)
+
+val add_left : int list -> int list
+(** [add_left r] is the int list resulted from adding equal values
+       of the deleted 0s list to the left.
+       Example: [delete_zeros [2; 2; 2] = [ 4;2].] *)
 
 val left_shift : int list -> int list
 (** [left_shift r] is a int list that has 0s to the end of the list r to make it
        a list of length 4.
-       Example: [left_shift [2;2] = [2;2;0;0].] *)
+       Example: [left_shift [2;2] = [4; 0;0;0].] *)
 
 val right_shift : int list -> int list
 (** [right_shift r] is a int list that has 0s to the beginning of the list r to
        make it a list of length 4
-       Example: [left_shift [2;2] = [0;0;2;2].] *)
+       Example: [left_shift [2;2] = [0;0;0; 4].] *)
 
 val left_shift_grid : int list list -> int list list
 (** [left_shift_grid g] is the int list list that has shifted all rows to the
