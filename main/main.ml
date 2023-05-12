@@ -5,6 +5,7 @@ let run_game () =
   print_endline
     "Type any number to play the Score gamemode for your custom score!\n\
      Press n to play for normal mode! \n\
+     Press e to play for easy mode (Get 512 to win)!  \n\
      Press r to play for reverse mode (Start at 2048, get to 1)! \n\
      Press anything else for unlimited play!";
   let input = read_line () in

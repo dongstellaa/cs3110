@@ -68,3 +68,13 @@ val add_tile : int list list -> int list list
 val add_tile_rev : int list list -> int list list
 (** [add_tile g] is the int list list with a randomly generated 2 or 4 in a
         randomly selected place, replacing a 0.*)
+
+val left_shift_rev : int list -> int list
+(** [left_shift r] is a int list that has 0s to the end of the list r to make it
+       a list of length 4.
+       Example: [left_shift [2048;2048] = [1024; 0;0;0].] *)
+
+val right_shift_rev : int list -> int list
+(** [right_shift r] is a int list that has 0s to the beginning of the list r to
+       make it a list of length 4
+       Example: [left_shift [2048;2048] = [0;0;0; 1024].] *)
