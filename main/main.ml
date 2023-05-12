@@ -1,3 +1,5 @@
+open Board
+
 let run_game grid () =
   print_endline Ui.start_game_cat;
   print_endline

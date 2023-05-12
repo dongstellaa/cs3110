@@ -15,7 +15,7 @@ test:
 	OCAMLRUNPARAM=b dune exec test/test.exe
 
 play:
-	OCAMLRUNPARAM=b dune exec ./_build/default/src/main.exe
+	OCAMLRUNPARAM=b dune exec ./_build/default/main/main.exe
 
 zip:
 	rm -f 2048.zip

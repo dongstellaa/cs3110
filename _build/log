@@ -1,9 +1,9 @@
-# dune exec test/test.exe
+# dune exec ./_build/default/main/main.exe
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Workspace root: /Users/evafarroha/Documents/GitHub/3110-final
 # Auto-detected concurrency: 8
-$ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v/z4mlqbrd62vbv7g47kxbw77h0000gn/T/dune_9d86af_output
+$ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v/z4mlqbrd62vbv7g47kxbw77h0000gn/T/dune_ff0889_output
 # Dune context:
 #  { name = "default"
 #  ; kind = "default"
@@ -115,5 +115,5 @@ $ /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlc.opt -config > /var/folders/1v
 #      ; windows_unicode = false
 #      }
 #  }
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.test.eobjs/byte -I test/.test.eobjs/native -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2 -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2/advanced -I /Users/evafarroha/.opam/cs3110-2023sp/lib/qcheck-core -I /Users/evafarroha/.opam/cs3110-2023sp/lib/seq -I /Users/evafarroha/.opam/cs3110-2023sp/lib/stdlib-shims -I src/.board.objs/byte -I src/.board.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.test.eobjs/native/dune__exe__Test.cmx -c -impl test/test.ml)
-$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/test.exe /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml/str.cmxa -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml/unix.cmxa -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml src/board.cmxa -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml /Users/evafarroha/.opam/cs3110-2023sp/lib/stdlib-shims/stdlib_shims.cmxa /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2/advanced/oUnitAdvanced.cmxa /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2/oUnit.cmxa /Users/evafarroha/.opam/cs3110-2023sp/lib/qcheck-core/qcheck_core.cmxa test/.test.eobjs/native/dune__exe__Test.cmx)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I main/.main.eobjs/byte -I main/.main.eobjs/native -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2 -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2/advanced -I /Users/evafarroha/.opam/cs3110-2023sp/lib/qcheck-core -I /Users/evafarroha/.opam/cs3110-2023sp/lib/seq -I /Users/evafarroha/.opam/cs3110-2023sp/lib/stdlib-shims -I src/.board.objs/byte -I src/.board.objs/native -intf-suffix .ml -no-alias-deps -opaque -o main/.main.eobjs/native/dune__exe__Main.cmx -c -impl main/main.ml)
+$ (cd _build/default && /Users/evafarroha/.opam/cs3110-2023sp/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o main/main.exe /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml/str.cmxa -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml/unix.cmxa -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml src/board.cmxa -I /Users/evafarroha/.opam/cs3110-2023sp/lib/ocaml /Users/evafarroha/.opam/cs3110-2023sp/lib/stdlib-shims/stdlib_shims.cmxa /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2/advanced/oUnitAdvanced.cmxa /Users/evafarroha/.opam/cs3110-2023sp/lib/ounit2/oUnit.cmxa /Users/evafarroha/.opam/cs3110-2023sp/lib/qcheck-core/qcheck_core.cmxa main/.main.eobjs/native/dune__exe__Main.cmx)

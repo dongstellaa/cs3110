@@ -1,0 +1,3 @@
+(executable
+ (name main)
+ (libraries Board ounit2 qcheck-core))
