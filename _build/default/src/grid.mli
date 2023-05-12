@@ -43,8 +43,28 @@ val down_shift_grid : int list list -> int list list
 (** [right_shift_grid g] is the int list list that has shifted all rows down, 
     summing equal values. *)
 
+val left_shift_grid_rev : int list list -> int list list
+(** [left_shift_grid g] is the int list list that has shifted all rows to the
+     left, subtracting equal values. *)
+
+val right_shift_grid_rev : int list list -> int list list
+(** [right_shift_grid g] is the int list list that has shifted all rows to the
+       right, subtracting equal values. *)
+
+val up_shift_grid_rev : int list list -> int list list
+(** [left_shift_grid g] is the int list list that has shifted all rows up, 
+       subtracting equal values. *)
+
+val down_shift_grid_rev : int list list -> int list list
+(** [right_shift_grid g] is the int list list that has shifted all rows down, 
+       subtracting equal values. *)
+
 val transpose : int list list -> int list list
 
 val add_tile : int list list -> int list list
 (** [add_tile g] is the int list list with a randomly generated 2 or 4 in a
     randomly selected place, replacing a 0.*)
+
+val add_tile_rev : int list list -> int list list
+(** [add_tile g] is the int list list with a randomly generated 2 or 4 in a
+        randomly selected place, replacing a 0.*)

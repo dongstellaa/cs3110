@@ -1,20 +1,31 @@
 (*here we do moving elements*)
 type move = Up | Down | Left | Right
-type gamemode = Score | Tile | Unselected
+type gamemode = Score of int | Reverse | Normal | Unselected
 
 let gamemode_type = ref Unselected
 
-let move_grid m input_grid =
-  let grid' =
-    match m with
-    | Left -> Grid.left_shift_grid input_grid
-    | Right -> Grid.right_shift_grid input_grid
-    | Up -> Grid.up_shift_grid input_grid
-    | Down -> Grid.down_shift_grid input_grid
-  in
-  Grid.add_tile grid'
+let move_grid m input_grid gm =
+  match !gm with
+  | Reverse ->
+      let grid' =
+        match m with
+        | Left -> Grid.left_shift_grid_rev input_grid
+        | Right -> Grid.right_shift_grid_rev input_grid
+        | Up -> Grid.up_shift_grid_rev input_grid
+        | Down -> Grid.down_shift_grid_rev input_grid
+      in
+      Grid.add_tile_rev grid'
+  | _ ->
+      let grid' =
+        match m with
+        | Left -> Grid.left_shift_grid input_grid
+        | Right -> Grid.right_shift_grid input_grid
+        | Up -> Grid.up_shift_grid input_grid
+        | Down -> Grid.down_shift_grid input_grid
+      in
+      Grid.add_tile grid'
 
-let init_grid =
+let init_grid gm =
   Grid.score := 0;
   Random.self_init ();
   let empty_row = List.init 4 (fun _ -> 0) in
@@ -26,9 +37,17 @@ let init_grid =
       let j = Random.int 4 in
       if List.nth (List.nth board i) j = 0 then
         let new_row =
-          List.mapi
-            (fun k x -> if k = j then if Random.bool () then 2 else 4 else x)
-            (List.nth board i)
+          match !gm with
+          | Reverse ->
+              List.mapi
+                (fun k x ->
+                  if k = j then if Random.bool () then 2048 else 1024 else x)
+                (List.nth board i)
+          | _ ->
+              List.mapi
+                (fun k x ->
+                  if k = j then if Random.bool () then 2 else 4 else x)
+                (List.nth board i)
         in
         let new_board =
           List.mapi (fun k row -> if k = i then new_row else row) board
@@ -40,11 +59,13 @@ let init_grid =
 
 let check_win gm input_grid =
   match !gm with
-  | Tile ->
+  | Normal ->
       List.exists
         (fun row -> List.exists (fun tile -> tile = 2048) row)
         input_grid
-  | Score -> !Grid.score >= 69000
+  | Score n -> !Grid.score >= n
+  | Reverse ->
+      List.exists (fun row -> List.exists (fun tile -> tile = 1) row) input_grid
   | Unselected -> false
 
 let check_lose grid =

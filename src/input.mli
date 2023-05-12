@@ -5,7 +5,7 @@ type action
 val key_to_action : string -> action
 (** [key_to_action s] is the type of action indicated by s. *)
 
-val grid_action : string -> int list list -> int list list
+val grid_action : string -> int list list -> Game.gamemode ref -> int list list
 (** [grid_action i g] is the int list list after performing the correct action
     on g indicated by i*)
 

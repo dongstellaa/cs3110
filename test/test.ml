@@ -9,6 +9,12 @@ let rec list_to_string lst =
   | [ x ] -> "[" ^ string_of_int x ^ "]"
   | x :: xs -> "[" ^ string_of_int x ^ "; " ^ list_to_string xs ^ "]"
 
+(* let rec list_list_to_string lst =
+   match lst with
+   | [] -> "[]"
+   | [ x ] -> "[" ^ list_to_string x ^ "]"
+   | x :: xs -> "[" ^ list_to_string x ^ "; " ^ list_list_to_string xs ^ "]" *)
+
 let row_move_test (name : string) (input : int list) (output : int list) : test
     =
   name >:: fun _ -> assert_equal output (delete_zeros input)
@@ -57,7 +63,7 @@ let check_lose_test (name : string) (grid : int list list) (output : bool) :
     test =
   name >:: fun _ -> assert_equal output (check_lose grid)
 
-let ref_tile = ref Tile
+let ref_tile = ref Normal
 
 let game_tests =
   [
