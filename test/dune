@@ -1,0 +1,3 @@
+(executable
+ (name test)
+ (libraries Board ounit2 qcheck-core))

@@ -1,3 +1,6 @@
-(executable
- (name main)
- (modules grid ui game input main test))
+(library
+ (name board)
+ (public_name Board)
+ (libraries str unix)
+ (instrumentation
+  (backend bisect_ppx)))
