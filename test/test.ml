@@ -1,6 +1,7 @@
 open OUnit2
 open Board
 open Grid
+open Game
 
 let rec list_to_string lst =
   match lst with
@@ -48,5 +49,60 @@ let grid_tests =
       [ 0; 0; 0; 4 ];
   ]
 
-let suite = "test suite for A2" >::: List.flatten [ grid_tests ]
+let check_win_test (name : string) (gm : gamemode ref) (grid : int list list)
+    (output : bool) : test =
+  name >:: fun _ -> assert_equal output (check_win gm grid)
+
+let check_lose_test (name : string) (grid : int list list) (output : bool) :
+    test =
+  name >:: fun _ -> assert_equal output (check_lose grid)
+
+let ref_tile = ref Tile
+
+let game_tests =
+  [
+    check_win_test "all 0s" ref_tile
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      false;
+    check_win_test "has 2048" ref_tile
+      [ [ 0; 0; 0; 2048 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      true;
+    check_lose_test "all 0s"
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      false;
+    check_lose_test "all full board w/ adjacent numbers"
+      [
+        [ 4; 4; 2; 16 ];
+        [ 4; 32; 1024; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 256; 2; 8 ];
+      ]
+      false;
+    check_lose_test "all full board w/o adjacent numbers"
+      [
+        [ 8; 4; 2; 16 ];
+        [ 4; 32; 1024; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 4; 2; 8 ];
+      ]
+      true;
+    check_lose_test "w/o adjacent numbers with 0s"
+      [
+        [ 1028; 4; 2; 16 ];
+        [ 4; 32; 0; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 4; 2; 8 ];
+      ]
+      false;
+    check_lose_test "only adjacent numbers are 0s"
+      [
+        [ 8; 4; 2; 1028 ];
+        [ 4; 32; 0; 0 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 4; 2; 1028 ];
+      ]
+      false;
+  ]
+
+let suite = "test suite for A2" >::: List.flatten [ grid_tests; game_tests ]
 let _ = run_test_tt_main suite

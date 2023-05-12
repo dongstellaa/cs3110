@@ -15,6 +15,7 @@ let move_grid m input_grid =
   Grid.add_tile grid'
 
 let init_grid =
+  Grid.score := 0;
   Random.self_init ();
   let empty_row = List.init 4 (fun _ -> 0) in
   let empty_board = List.init 4 (fun _ -> empty_row) in
