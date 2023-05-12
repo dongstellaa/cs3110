@@ -23,3 +23,7 @@ val init_grid : int list list
 val check_win : gamemode ref -> int list list -> bool
 (** [check_win gm grid] checks grid for a winning grid, which varies by 
     what gm is selected by the player. *)
+
+val check_lose : int list list -> bool
+(** [check_lose grid] checks grid for a losing grid, which is defined by having
+    no adjacent numbers that are the same, except for 0s. *)

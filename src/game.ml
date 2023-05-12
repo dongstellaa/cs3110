@@ -45,3 +45,27 @@ let check_win gm input_grid =
         input_grid
   | Score -> !Grid.score >= 69000
   | Unselected -> failwith "check win"
+
+let check_lose grid =
+  let rows = List.length grid in
+  let cols = List.length (List.hd grid) in
+  let is_adjacent_same r c =
+    let current = List.nth (List.nth grid r) c in
+    let left = if c > 0 then List.nth (List.nth grid r) (c - 1) else -1 in
+    let right =
+      if c < cols - 1 then List.nth (List.nth grid r) (c + 1) else -1
+    in
+    let up = if r > 0 then List.nth (List.nth grid (r - 1)) c else -1 in
+    let down =
+      if r < rows - 1 then List.nth (List.nth grid (r + 1)) c else -1
+    in
+    current = left || current = right || current = up || current = down
+  in
+  let rec check_rows r c =
+    if r >= rows then true
+    else if c >= cols then check_rows (r + 1) 0
+    else if List.nth (List.nth grid r) c = 0 then false
+    else if is_adjacent_same r c then false
+    else check_rows r (c + 1)
+  in
+  check_rows 0 0

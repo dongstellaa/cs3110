@@ -19,6 +19,7 @@ let run_game grid () =
       print_endline ("Score: " ^ string_of_int !Grid.score);
       if Game.check_win Game.gamemode_type new_grid then
         print_endline Ui.end_game_cat
+      else if Game.check_lose new_grid then print_endline Ui.lose_game_cat
       else print_endline "Press w, a, s, d to play or q to exit:";
       user_input_helper new_grid
   in
