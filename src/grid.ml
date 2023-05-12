@@ -15,7 +15,9 @@ let score = ref 0
 let add_right (row : int list) : int list =
   let rec addition (acc : int list) (r : int list) : int list =
     match List.rev r with
-    | h1 :: h2 :: t when h1 = h2 -> addition (acc @ [ 2 * h1 ]) (t @ [ 0 ])
+    | h1 :: h2 :: t when h1 = h2 ->
+        score := !score + (2 * h1);
+        addition (acc @ [ 2 * h1 ]) (t @ [ 0 ])
     (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
     | h :: t -> addition (acc @ [ h ]) t
     | [] -> List.rev acc
@@ -25,7 +27,9 @@ let add_right (row : int list) : int list =
 let add_left (row : int list) : int list =
   let rec addition (acc : int list) (r : int list) : int list =
     match r with
-    | h1 :: h2 :: t when h1 = h2 -> addition (acc @ [ 2 * h1 ]) (t @ [ 0 ])
+    | h1 :: h2 :: t when h1 = h2 ->
+        score := !score + (2 * h1);
+        addition (acc @ [ 2 * h1 ]) (t @ [ 0 ])
     (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
     | h :: t -> addition (acc @ [ h ]) t
     | [] -> acc

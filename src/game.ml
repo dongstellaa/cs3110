@@ -44,7 +44,7 @@ let check_win gm input_grid =
         (fun row -> List.exists (fun tile -> tile = 2048) row)
         input_grid
   | Score -> !Grid.score >= 69000
-  | Unselected -> failwith "check win"
+  | Unselected -> false
 
 let check_lose grid =
   let rows = List.length grid in
