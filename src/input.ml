@@ -25,6 +25,7 @@ let key_to_gm s =
   | "n" -> Normal
   | "r" -> Reverse
   | "e" -> Easy
+  | "i" -> Invis
   | _ -> Unselected
 
 let pick_gamemode input = gamemode_type := key_to_gm input

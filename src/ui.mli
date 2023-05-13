@@ -21,5 +21,5 @@ val build_row : int list -> string
 (** [build_row r] is the string version of r, replacing each 0 with an
     empty cell and adding barriers between each column. *)
 
-val output : int list list -> unit
+val output : int list list -> Game.gamemode ref -> unit
 (** [output g] prints the constructed ascii version of g. *)

@@ -1,6 +1,6 @@
 (*here we do moving elements*)
 type move = Up | Down | Left | Right
-type gamemode = Score of int | Reverse | Normal | Easy | Unselected
+type gamemode = Score of int | Reverse | Normal | Easy | Invis | Unselected
 
 let gamemode_type = ref Unselected
 
@@ -69,6 +69,10 @@ let check_win gm input_grid =
   | Easy ->
       List.exists
         (fun row -> List.exists (fun tile -> tile = 512) row)
+        input_grid
+  | Invis ->
+      List.exists
+        (fun row -> List.exists (fun tile -> tile = 2048) row)
         input_grid
   | Unselected -> false
 
