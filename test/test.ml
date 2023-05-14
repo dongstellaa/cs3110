@@ -70,73 +70,75 @@ let grid_tests =
       [ 0; 0; 0; 2048 ];
   ]
 
-(* let check_win_test (name : string) (gm : gamemode ref) (grid : int list list)
-     (output : bool) : test =
-   name >:: fun _ -> assert_equal output (check_win gm grid) *)
-(*
-   let check_lose_test (name : string) (grid : int list list) (output : bool) :
-       test =
-     name >:: fun _ -> assert_equal output (check_lose grid) *)
+let check_win_test (name : string) (gm : Game.gamemode ref)
+    (grid : int list list) (output : unit) : test =
+  name >:: fun _ -> assert_equal output (Game.check_win gm grid)
 
-(* let ref_normal = ref Normal
-   let ref_easy = ref Easy
-   let ref_rev = ref Reverse *)
+let check_lose_test (name : string) (grid : int list list) (output : unit) :
+    test =
+  name >:: fun _ -> assert_equal output (Game.check_lose grid)
 
-(* let game_tests =
-   [
-     check_win_test "all 0s" ref_normal
-       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
-       false;
-     check_win_test "has 2048" ref_normal
-       [ [ 0; 0; 0; 2048 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
-       true;
-     check_win_test "has 512" ref_easy
-       [ [ 0; 0; 0; 512 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
-       true;
-     check_win_test "has 1" ref_rev
-       [
-         [ 0; 0; 0; 1024 ];
-         [ 2048; 0; 1024; 0 ];
-         [ 512; 2; 1; 512 ];
-         [ 0; 0; 4; 0 ];
-       ]
-       true;
-     check_lose_test "all 0s"
-       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
-       false;
-     check_lose_test "all full board w/ adjacent numbers"
-       [
-         [ 4; 4; 2; 16 ];
-         [ 4; 32; 1024; 512 ];
-         [ 2; 8; 64; 128 ];
-         [ 256; 256; 2; 8 ];
-       ]
-       false;
-     check_lose_test "all full board w/o adjacent numbers"
-       [
-         [ 8; 4; 2; 16 ];
-         [ 4; 32; 1024; 512 ];
-         [ 2; 8; 64; 128 ];
-         [ 256; 4; 2; 8 ];
-       ]
-       true;
-     check_lose_test "w/o adjacent numbers with 0s"
-       [
-         [ 1028; 4; 2; 16 ];
-         [ 4; 32; 0; 512 ];
-         [ 2; 8; 64; 128 ];
-         [ 256; 4; 2; 8 ];
-       ]
-       false;
-     check_lose_test "only adjacent numbers are 0s"
-       [
-         [ 8; 4; 2; 1028 ];
-         [ 4; 32; 0; 0 ];
-         [ 2; 8; 64; 128 ];
-         [ 256; 4; 2; 1028 ];
-       ]
-       false;
-   ] *)
+let ref_normal = ref Game.Normal
+let ref_easy = ref Game.Easy
+let ref_rev = ref Game.Reverse
 
-let suite = "test suite for our project" >::: List.flatten [ grid_tests ]
+let game_tests =
+  [
+    check_win_test "all 0s" ref_normal
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      (Game.game_won := true);
+    check_win_test "has 2048" ref_normal
+      [ [ 0; 0; 0; 2048 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      (Game.game_won := true);
+    check_win_test "has 512" ref_easy
+      [ [ 0; 0; 0; 512 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      (Game.game_won := true);
+    check_win_test "has 1" ref_rev
+      [
+        [ 0; 0; 0; 1024 ];
+        [ 2048; 0; 1024; 0 ];
+        [ 512; 2; 1; 512 ];
+        [ 0; 0; 4; 0 ];
+      ]
+      (Game.game_won := true);
+    check_lose_test "all 0s"
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      (Game.game_lose := true);
+    check_lose_test "all full board w/ adjacent numbers"
+      [
+        [ 4; 4; 2; 16 ];
+        [ 4; 32; 1024; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 256; 2; 8 ];
+      ]
+      (Game.game_lose := false);
+    check_lose_test "all full board w/o adjacent numbers"
+      [
+        [ 8; 4; 2; 16 ];
+        [ 4; 32; 1024; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 4; 2; 8 ];
+      ]
+      (Game.game_lose := true);
+    check_lose_test "w/o adjacent numbers with 0s"
+      [
+        [ 1028; 4; 2; 16 ];
+        [ 4; 32; 0; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 4; 2; 8 ];
+      ]
+      (Game.game_lose := false);
+    check_lose_test "only adjacent numbers are 0s"
+      [
+        [ 8; 4; 2; 1028 ];
+        [ 4; 32; 0; 0 ];
+        [ 2; 8; 64; 128 ];
+        [ 256; 4; 2; 1028 ];
+      ]
+      (Game.game_lose := false);
+  ]
+
+let suite =
+  "test suite for our project" >::: List.flatten [ grid_tests; game_tests ]
+
 let _ = run_test_tt_main suite
