@@ -8,8 +8,8 @@ let run_game () =
      Press e to play for easy mode (Get 512 to win)!  \n\
      Press r to play for reverse mode (Start at 2048, get to 1)! \n\
      Press i to play for invisible mode (The numbers are invis ?)! \n\
-     Press h to play for hangman mode (win game of hangman in between each \
-     round)! \n\
+     Press h to play for hangman mode (win a game of cat/cs word hangman in \
+     between each move)! \n\
      Press anything else for unlimited play!";
   let input = read_line () in
   Input.pick_gamemode input;

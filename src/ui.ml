@@ -49,7 +49,8 @@ let end_game_cat =
   \  |  |  |  | ) ) |  |  |//|  |  |  |  |  |  |\n\
   \  |  |  |  |(_(  |  |  (( |  |  |  |  |  |  |\n\
   \  |  |  |  |  |  |  |  |\\)|  |  |  |  |  |  |\n\
-  \  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |"
+  \  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n\
+  \   press q to quit"
 
 let lose_game_cat =
   "\n\n\
@@ -76,7 +77,7 @@ let lose_game_cat =
   \  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | \n\
   \ \n\n\
   \ you lost :( loser :(\n\
-  \  "
+  \ press q to quit"
 
 let top_line = "┌────────┬────────┬────────┬────────┐"
 

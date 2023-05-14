@@ -51,7 +51,7 @@ let print_state word guessed_chars =
   print_newline ()
 
 let get_guess () =
-  Printf.printf "Enter your guess: ";
+  Printf.printf "Enter your guess (characters only): ";
   let guess = read_line () in
   if String.length guess <> 1 || not (is_alpha guess.[0]) then
     failwith "Invalid guess"
