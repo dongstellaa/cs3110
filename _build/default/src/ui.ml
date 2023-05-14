@@ -94,11 +94,24 @@ let build_row row =
   in
   String.concat "" elem_strings ^ "│"
 
-let output grid =
-  print_endline top_line;
-  for i = 0 to 2 do
-    print_endline (build_row (List.nth grid i));
-    print_endline middle_line
-  done;
-  print_endline (build_row (List.nth grid 3));
-  print_endline bottom_line
+let output grid gm =
+  match !gm with
+  | Game.Invis ->
+      print_endline
+        "┌────────┬────────┬────────┬────────┐\n\
+         │        │        │        │        │\n\
+         ├────────┼────────┼────────┼────────┤\n\
+         │        │        │        │        │\n\
+         ├────────┼────────┼────────┼────────┤\n\
+         │        │        │        │        │\n\
+         ├────────┼────────┼────────┼────────┤\n\
+         │        │        │        │        │\n\
+         └────────┴────────┴────────┴────────┘"
+  | _ ->
+      print_endline top_line;
+      for i = 0 to 2 do
+        print_endline (build_row (List.nth grid i));
+        print_endline middle_line
+      done;
+      print_endline (build_row (List.nth grid 3));
+      print_endline bottom_line

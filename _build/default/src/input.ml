@@ -24,6 +24,8 @@ let key_to_gm s =
   | n when is_number n -> Score (int_of_string n)
   | "n" -> Normal
   | "r" -> Reverse
+  | "e" -> Easy
+  | "i" -> Invis
   | _ -> Unselected
 
 let pick_gamemode input = gamemode_type := key_to_gm input

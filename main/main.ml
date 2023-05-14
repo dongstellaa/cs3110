@@ -3,11 +3,13 @@ open Board
 let run_game () =
   print_endline Ui.start_game_cat;
   print_endline
-    "Type any number to play the Score gamemode for your custom score!\n\
+    "Type any number to play Score mode with your custom score!\n\
      Press n to play for normal mode! \n\
      Press e to play for easy mode (Get 512 to win)!  \n\
      Press r to play for reverse mode (Start at 2048, get to 1)! \n\
      Press i to play for invisible mode (The numbers are invis ?)! \n\
+     Press h to play for hangman mode (win game of hangman in between each \
+     round)! \n\
      Press anything else for unlimited play!";
   let input = read_line () in
   Input.pick_gamemode input;

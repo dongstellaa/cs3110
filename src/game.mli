@@ -10,6 +10,7 @@ type gamemode =
   | Normal
   | Easy
   | Invis
+  | Hangman
   | Unselected  (** The type of gamemode defined by which type is indicated. *)
 
 val gamemode_type : gamemode ref
