@@ -138,5 +138,5 @@ let grid_tests =
        false;
    ] *)
 
-let suite = "test suite for A2" >::: List.flatten [ grid_tests ]
+let suite = "test suite for our project" >::: List.flatten [ grid_tests ]
 let _ = run_test_tt_main suite
