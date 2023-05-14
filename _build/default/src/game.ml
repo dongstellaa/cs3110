@@ -11,6 +11,8 @@ type gamemode =
   | Unselected
 
 let gamemode_type = ref Unselected
+let game_won = ref false
+let game_lose = ref false
 
 let move_grid m input_grid gm =
   match !gm with
@@ -23,16 +25,16 @@ let move_grid m input_grid gm =
         | Down -> Grid.down_shift_grid_rev input_grid
       in
       if grid' <> input_grid then Grid.add_tile_rev grid' else input_grid
-  (* | Hangman ->
-      Hangman.play_game ();
+  | Hangman ->
+      if Hangman.run_game () then game_lose := false else game_lose := true;
       let grid' =
         match m with
-        | Left -> Grid.left_shift_grid_rev input_grid
-        | Right -> Grid.right_shift_grid_rev input_grid
-        | Up -> Grid.up_shift_grid_rev input_grid
-        | Down -> Grid.down_shift_grid_rev input_grid
+        | Left -> Grid.left_shift_grid input_grid
+        | Right -> Grid.right_shift_grid input_grid
+        | Up -> Grid.up_shift_grid input_grid
+        | Down -> Grid.down_shift_grid input_grid
       in
-      if grid' <> input_grid then Grid.add_tile_rev grid' else input_grid *)
+      if grid' <> input_grid then Grid.add_tile grid' else input_grid
   | _ ->
       let grid' =
         match m with
@@ -76,19 +78,24 @@ let init_grid gm =
   add_tile 2 empty_board
 
 let check_win gm input_grid =
-  match !gm with
-  | Score n -> !Grid.score >= n
-  | Reverse ->
-      List.exists (fun row -> List.exists (fun tile -> tile = 1) row) input_grid
-  | Easy ->
-      List.exists
-        (fun row -> List.exists (fun tile -> tile = 512) row)
-        input_grid
-  | Unselected -> false
-  | _ ->
-      List.exists
-        (fun row -> List.exists (fun tile -> tile = 2048) row)
-        input_grid
+  let bol =
+    match !gm with
+    | Score n -> !Grid.score >= n
+    | Reverse ->
+        List.exists
+          (fun row -> List.exists (fun tile -> tile = 1) row)
+          input_grid
+    | Easy ->
+        List.exists
+          (fun row -> List.exists (fun tile -> tile = 512) row)
+          input_grid
+    | Unselected -> false
+    | _ ->
+        List.exists
+          (fun row -> List.exists (fun tile -> tile = 2048) row)
+          input_grid
+  in
+  if bol then game_won := true else game_won := false
 
 let check_lose grid =
   let rows = List.length grid in
@@ -112,4 +119,5 @@ let check_lose grid =
     else if is_adjacent_same r c then false
     else check_rows r (c + 1)
   in
-  check_rows 0 0
+  let bol = check_rows 0 0 in
+  if bol then game_lose := true else game_lose := false
