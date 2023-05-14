@@ -90,9 +90,15 @@ let game_tests =
     check_win_test "has 2048" ref_normal
       [ [ 0; 0; 0; 2048 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
       (Game.game_won := true);
+    check_win_test "doesnt have 2048" ref_normal
+      [ [ 0; 0; 0; 2 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      (Game.game_won := false);
     check_win_test "has 512" ref_easy
       [ [ 0; 0; 0; 512 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
       (Game.game_won := true);
+    check_win_test "doesnt have 512" ref_easy
+      [ [ 0; 0; 0; 2 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      (Game.game_won := false);
     check_win_test "has 1" ref_rev
       [
         [ 0; 0; 0; 1024 ];
@@ -101,15 +107,48 @@ let game_tests =
         [ 0; 0; 4; 0 ];
       ]
       (Game.game_won := true);
+    check_win_test "doesnt have 1" ref_rev
+      [
+        [ 0; 0; 0; 1024 ];
+        [ 2048; 0; 1024; 0 ];
+        [ 512; 2; 2; 512 ];
+        [ 0; 0; 4; 0 ];
+      ]
+      (Game.game_won := false);
     check_lose_test "all 0s"
       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
       (Game.game_lose := true);
-    check_lose_test "all full board w/ adjacent numbers"
+    check_lose_test
+      "all full board w/ adjacent numbers, up and down, right to left both work"
       [
         [ 4; 4; 2; 16 ];
         [ 4; 32; 1024; 512 ];
         [ 2; 8; 64; 128 ];
         [ 256; 256; 2; 8 ];
+      ]
+      (Game.game_lose := false);
+    check_lose_test "all full board w/ adjacent numbers side to side"
+      [
+        [ 4; 4; 2; 16 ];
+        [ 8; 32; 1024; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 4; 256; 2; 8 ];
+      ]
+      (Game.game_lose := false);
+    check_lose_test "all full board w/ multiple sets of adjacent numbers"
+      [
+        [ 4; 4; 2; 16 ];
+        [ 8; 32; 32; 512 ];
+        [ 2; 8; 64; 512 ];
+        [ 256; 256; 256; 8 ];
+      ]
+      (Game.game_lose := false);
+    check_lose_test "all full board w/ adjacent numbers up and down"
+      [
+        [ 4; 8; 2; 16 ];
+        [ 4; 32; 1024; 512 ];
+        [ 2; 8; 64; 128 ];
+        [ 4; 256; 2; 8 ];
       ]
       (Game.game_lose := false);
     check_lose_test "all full board w/o adjacent numbers"
