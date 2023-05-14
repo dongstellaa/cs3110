@@ -15,6 +15,11 @@ let word_list =
     "paws";
     "pussy";
     "silly";
+    "litter";
+    "calico";
+    "siamese";
+    "ragdoll";
+    "sphynx";
     "rawr";
     "poop";
     "nap";
