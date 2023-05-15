@@ -1,24 +1,11 @@
 let score = ref 0
 
-(* let finish_multiplier_tail row =
-   let rec shift_helper acc = function
-     | [] -> acc
-     | h :: tl when h = 0 -> shift_helper acc tl
-     | h :: tl when h = (acc |> List.rev |> List.hd) ->
-         score := !score + h;
-         shift_helper (acc |> List.rev |> List.tl |> List.rev) tl @ [ 2 * h ]
-     (* | h :: tl when acc = [] -> shift_helper [ h ] tl *)
-     | h :: tl -> shift_helper (h :: acc) tl
-   in
-   shift_helper [] row *)
-
 let add_left (row : int list) : int list =
   let rec addition (acc : int list) (r : int list) : int list =
     match r with
     | h1 :: h2 :: t when h1 = h2 ->
         score := !score + (2 * h1);
         addition (acc @ [ 2 * h1 ]) (t @ [ 0 ])
-    (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
     | h :: t -> addition (acc @ [ h ]) t
     | [] -> acc
   in
@@ -26,16 +13,6 @@ let add_left (row : int list) : int list =
 
 let add_right (row : int list) : int list =
   row |> List.rev |> add_left |> List.rev
-(* let rec addition (acc : int list) (r : int list) : int list =
-     match List.rev r with
-     | h1 :: h2 :: t when h1 = h2 ->
-         score := !score + (2 * h1);
-         addition ((2 * h1) :: acc) (t @ [ 0 ])
-     (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
-     | h :: t -> addition (h :: acc) t
-     | [] -> List.rev acc
-   in
-   addition [] row *)
 
 let delete_zeros row =
   let rec shift_helper acc r =
@@ -45,23 +22,6 @@ let delete_zeros row =
     | h :: tl -> shift_helper (acc @ [ h ]) tl
   in
   shift_helper [] row
-(* | h :: tl when acc = [] -> shift_helper [ h ] tl
-     | h :: tl when h = (acc |> List.rev |> List.hd) ->
-         score := !score + h;
-         shift_helper
-           ((acc |> List.rev |> List.tl |> List.rev) @ [ 2 * h ] @ tl)
-           []
-     | h :: tl -> shift_helper (acc @ [ h ]) tl
-   in
-   shift_helper [] row *)
-
-(* let left_shift row =
-   match List.length (delete_zeros row) with
-   | 0 -> List.rev (delete_zeros row) @ [ 0; 0; 0; 0 ]
-   | 1 -> List.rev (delete_zeros row) @ [ 0; 0; 0 ]
-   | 2 -> List.rev (delete_zeros row) @ [ 0; 0 ]
-   | 3 -> List.rev (delete_zeros row) @ [ 0 ]
-   | _ -> List.rev (delete_zeros row) @ [] *)
 
 let left_shift row =
   match List.length (row |> delete_zeros) with
@@ -70,7 +30,6 @@ let left_shift row =
   | 2 -> (row |> delete_zeros |> add_left) @ [ 0; 0 ]
   | 3 -> (row |> delete_zeros |> add_left) @ [ 0 ]
   | _ -> (row |> delete_zeros |> add_left) @ []
-(* let right_shift row = List.rev row |> shift_left |> List.rev *)
 
 let right_shift row =
   match List.length (row |> delete_zeros) with
@@ -90,8 +49,6 @@ let left_shift_grid grid = List.map left_shift grid
 let right_shift_grid grid = List.map right_shift grid
 let up_shift_grid grid = grid |> transpose |> left_shift_grid |> transpose
 let down_shift_grid grid = grid |> transpose |> right_shift_grid |> transpose
-(* grid |> List.map List.rev |> transpose |> left_shift_grid |> transpose
-   |> List.map List.rev *)
 
 let add_left_rev (row : int list) : int list =
   let rec addition (acc : int list) (r : int list) : int list =
@@ -99,7 +56,6 @@ let add_left_rev (row : int list) : int list =
     | h1 :: h2 :: t when h1 = h2 ->
         score := !score + (2 * h1);
         addition (acc @ [ h1 / 2 ]) (t @ [ 0 ])
-    (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
     | h :: t -> addition (acc @ [ h ]) t
     | [] -> acc
   in
@@ -115,7 +71,6 @@ let left_shift_rev row =
   | 2 -> (row |> delete_zeros |> add_left_rev) @ [ 0; 0 ]
   | 3 -> (row |> delete_zeros |> add_left_rev) @ [ 0 ]
   | _ -> (row |> delete_zeros |> add_left_rev) @ []
-(* let right_shift row = List.rev row |> shift_left |> List.rev *)
 
 let right_shift_rev row =
   match List.length (row |> delete_zeros) with
