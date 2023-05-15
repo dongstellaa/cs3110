@@ -4,15 +4,16 @@ To Run 2048:
 - Then run: make play
 - Follow as prompted! If unclear:
   - Selecting a gamemode:
-    - score mode = enter the score you want to play until.
-    - normal mode = get the 2048 tile to win
-    - easy mode = get the 512 tile to win
-    - reverse mode = start with the 2048 tile, combining tiles halves them. get
-      to 1 to win.
-    - invisible mode = only grid, no numbers, try to get 2048.
-    - hangman mode = a round of hangman initiates after every move. lose hangman
-      and you lose the game, try to get 2048.
-    - unlimited = like the classic game, play until you lose.
+    - score mode = enter the score (the actual number) you want to play until.
+    - normal mode = press n, get the 2048 tile to win
+    - easy mode = press e, get the 512 tile to win
+    - reverse mode = press r, start with the 2048 tile, combining tiles halves 
+      them. get to 1 to win.
+    - invisible mode = press i, only grid, no numbers, try to get 2048.
+    - hangman mode = press h, a round of hangman initiates after every move. 
+      lose hangman and you lose the game, try to get 2048.
+    - unlimited = press any other key, like the classic game, play until you 
+      lose.
   - only wasd works as moves. 
   - after you win or lose, hit q to quit. nothing else will work.
 
