@@ -73,6 +73,7 @@ let row_tests =
       [ 0; 2048; 8; 2 ];
     right_shift_test "4 of the same, all add" [ 2048; 2048; 2048; 2048 ]
       [ 0; 0; 4096; 4096 ];
+    left_shift_test_rev "empty" [ 0; 0; 0; 0 ] [ 0; 0; 0; 0 ];
     left_shift_test_rev "one value left shift" [ 0; 2048; 0; 0 ]
       [ 2048; 0; 0; 0 ];
     left_shift_test_rev "two value left shift, no spaces" [ 0; 2048; 1024; 0 ]
@@ -83,6 +84,7 @@ let row_tests =
       [ 1024; 0; 0; 0 ];
     left_shift_test_rev "three equal value left shift" [ 0; 2048; 2048; 2048 ]
       [ 1024; 2048; 0; 0 ];
+    right_shift_test_rev "empty" [ 0; 0; 0; 0 ] [ 0; 0; 0; 0 ];
     right_shift_test_rev "one value right shift" [ 0; 0; 2048; 0 ]
       [ 0; 0; 0; 2048 ];
     right_shift_test_rev "two value right shift, spaces between"
@@ -112,6 +114,9 @@ let grid_tests =
     up_shift_test_grid "all 0s"
       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ];
+    up_shift_test_grid "one value"
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 2048; 0; 0; 0 ] ]
+      [ [ 2048; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ];
     up_shift_test_grid "multiple columns, no merge"
       [
         [ 0; 1024; 0; 0 ];
@@ -122,6 +127,19 @@ let grid_tests =
       [
         [ 2048; 1024; 512; 512 ];
         [ 0; 2048; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+      ];
+    up_shift_test_grid "one in each column"
+      [
+        [ 0; 1024; 0; 0 ];
+        [ 0; 0; 2048; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 2048; 0; 0; 512 ];
+      ]
+      [
+        [ 2048; 1024; 2048; 512 ];
+        [ 0; 0; 0; 0 ];
         [ 0; 0; 0; 0 ];
         [ 0; 0; 0; 0 ];
       ];
@@ -151,6 +169,32 @@ let grid_tests =
         [ 0; 0; 0; 0 ];
         [ 0; 0; 0; 0 ];
       ];
+    up_shift_test_grid "two different adjacent pairs"
+      [
+        [ 2048; 1024; 0; 1024 ];
+        [ 2048; 2048; 0; 512 ];
+        [ 2; 0; 512; 0 ];
+        [ 2; 0; 0; 512 ];
+      ]
+      [
+        [ 4096; 1024; 512; 1024 ];
+        [ 4; 2048; 0; 1024 ];
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+      ];
+    up_shift_test_grid "multiple columns, 3 of the same"
+      [
+        [ 0; 1024; 0; 512 ];
+        [ 0; 2048; 0; 0 ];
+        [ 2048; 0; 512; 512 ];
+        [ 2048; 0; 0; 512 ];
+      ]
+      [
+        [ 4096; 1024; 512; 1024 ];
+        [ 0; 2048; 0; 512 ];
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+      ];
     up_shift_test_grid "multiple columns, 4 of the same"
       [
         [ 0; 1024; 0; 512 ];
@@ -164,9 +208,28 @@ let grid_tests =
         [ 0; 0; 0; 0 ];
         [ 0; 0; 0; 0 ];
       ];
+    up_shift_test_grid "grid all same number"
+      [
+        [ 512; 512; 512; 512 ];
+        [ 512; 512; 512; 512 ];
+        [ 512; 512; 512; 512 ];
+        [ 512; 512; 512; 512 ];
+      ]
+      [
+        [ 1024; 1024; 1024; 1024 ];
+        [ 1024; 1024; 1024; 1024 ];
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+      ];
     down_shift_test_grid "all 0s"
       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
       [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ];
+    down_shift_test_grid "one value, no movement"
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 2048; 0; 0; 0 ] ]
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 2048; 0; 0; 0 ] ];
+    down_shift_test_grid "one value, movement"
+      [ [ 2048; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ] ]
+      [ [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 0; 0; 0; 0 ]; [ 2048; 0; 0; 0 ] ];
     down_shift_test_grid "multiple columns, no merge"
       [
         [ 2048; 0; 0; 0 ];
@@ -179,6 +242,19 @@ let grid_tests =
         [ 0; 0; 0; 0 ];
         [ 0; 512; 0; 0 ];
         [ 2048; 4096; 0; 1024 ];
+      ];
+    down_shift_test_grid "one in each column"
+      [
+        [ 0; 1024; 0; 0 ];
+        [ 0; 0; 2048; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 2048; 0; 0; 512 ];
+      ]
+      [
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 2048; 1024; 2048; 512 ];
       ];
     down_shift_test_grid "multiple columns, merges"
       [
@@ -193,6 +269,32 @@ let grid_tests =
         [ 2048; 1024; 0; 0 ];
         [ 4; 4096; 0; 1024 ];
       ];
+    down_shift_test_grid "multiple columns, twi different merges adjacent"
+      [
+        [ 4; 0; 0; 2048 ];
+        [ 4; 512; 0; 1024 ];
+        [ 2; 512; 0; 0 ];
+        [ 2; 4096; 0; 0 ];
+      ]
+      [
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 8; 1024; 0; 2048 ];
+        [ 4; 4096; 0; 1024 ];
+      ];
+    down_shift_test_grid "multiple columns, three of the same"
+      [
+        [ 0; 0; 0; 2048 ];
+        [ 2; 512; 0; 1024 ];
+        [ 2; 512; 0; 0 ];
+        [ 2; 4096; 0; 0 ];
+      ]
+      [
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 2; 1024; 0; 2048 ];
+        [ 4; 4096; 0; 1024 ];
+      ];
     down_shift_test_grid "multiple columns, 4 of the same"
       [
         [ 2048; 0; 0; 1024 ];
@@ -205,6 +307,19 @@ let grid_tests =
         [ 0; 0; 0; 0 ];
         [ 2048; 1024; 0; 2048 ];
         [ 4; 4096; 0; 2048 ];
+      ];
+    down_shift_test_grid "grid all same number"
+      [
+        [ 512; 512; 512; 512 ];
+        [ 512; 512; 512; 512 ];
+        [ 512; 512; 512; 512 ];
+        [ 512; 512; 512; 512 ];
+      ]
+      [
+        [ 0; 0; 0; 0 ];
+        [ 0; 0; 0; 0 ];
+        [ 1024; 1024; 1024; 1024 ];
+        [ 1024; 1024; 1024; 1024 ];
       ];
   ]
 
