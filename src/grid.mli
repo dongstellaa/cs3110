@@ -1,3 +1,5 @@
+(** Controls grid movements and attributes. *)
+
 val score : int ref
 (** [score] represents the score of the current game. When two numbers are
     merged, the resulting sum is added the the score. *)

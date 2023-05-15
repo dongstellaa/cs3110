@@ -1,3 +1,50 @@
+(**
+    Test Plan:
+    Game
+    - Majority of the Game module was manually tested through running the game
+      through terminal because it relied on connections with other modules and 
+      user input or for functions like move_grid, relied on the correctness of 
+      other modules. 
+    - We used OUnit (glass box testing) for check_win and check_lose to get all 
+      possible branches in the code and make sure a win and a loss is always 
+      correctly detected.
+
+    Grid
+    - This module used mostly OUnit testing, specifically glass box. Because the
+      movement of the grid is so important to the game, we used tried to get as 
+      much coverage as possible and also ran the game in terminal, found cases 
+      errors, then created OUnit tests for those as well.
+    - Add_tile and add_tile_rev were manually tested in the terminal because 
+      their outputs are randomized. Because this function is called in between 
+      each move, it was easy to keep playing the game and evaluate each grid for 
+      the correct output from add_tile.
+
+    Hangman
+    - Many of the functions in hangman are of type unit and print in the 
+      terminal, so for those functions, we manually tested them as they were
+      implemented.
+    - The remaining few functions, like to_char_list, used both glass box 
+      testing and manual testing. Glass box testing was used throughout the
+      implementation and then as we were figuring out how to connect this module
+      to the rest of the game, we ended up playing a lot of hangman :|.
+
+    Input
+    - Most of the Input module was testing manually as the executable game file 
+      was set up or as functions were added, like adding a new gamemode had to
+      repeatedly test the functions called to make the gamemode work. Through 
+      that sequence of testing as implementation progressed, we know that each
+      feature that we added works as needed.
+    - grid_action used OUnit testing specifically to test invalid moves, when a 
+      move did not actually update the grid, to get full coverage of the
+      function.
+
+    Ui
+    - For the few functions in Ui, they were only tested manually because they 
+      all print directly to the terminal. Because those functions are called for
+      every single move, it's obvious when they were not implemented correctly 
+      and could easily be debugged.
+*)
+
 open OUnit2
 open Board
 open Grid

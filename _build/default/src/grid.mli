@@ -1,3 +1,5 @@
+(** Controls grid movements and attributes. *)
+
 val score : int ref
 (** [score] represents the score of the current game. When two numbers are
     merged, the resulting sum is added the the score. *)
@@ -60,6 +62,7 @@ val down_shift_grid_rev : int list list -> int list list
        subtracting equal values. *)
 
 val transpose : int list list -> int list list
+(** [transpose g] is the transpose of the matrix the grid produces. *)
 
 val add_tile : int list list -> int list list
 (** [add_tile g] is the int list list with a randomly generated 2 or 4 in a

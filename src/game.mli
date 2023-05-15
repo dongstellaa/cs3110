@@ -1,3 +1,5 @@
+(** Handles overhead mechanics of the game. *)
+
 type move =
   | Up
   | Down
@@ -14,10 +16,13 @@ type gamemode =
   | Unselected  (** The type of gamemode defined by which type is indicated. *)
 
 val gamemode_type : gamemode ref
-(* val status_ref : game_status ref *)
+(** Represents the gamemode type as selected by the player. *)
 
 val game_won : bool ref
+(** Represents whether the game has been won. True if won, false if not. *)
+
 val game_lose : bool ref
+(** Represents whether the game has been lost. True if lost, false if not. *)
 
 val move_grid : move -> int list list -> gamemode ref -> int list list
 (** [move_grid m g] is the int list list that results from shifting g in the

@@ -1,3 +1,5 @@
+(** Connects user input and game movements. *)
+
 type action
 (** The type of action taking place in the game, which can be a move via a 
     valid key press or invalid by an invalid key press. *)

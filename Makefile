@@ -21,6 +21,12 @@ zip:
 	rm -f 2048.zip
 	zip -r 2048.zip . -x@exclude.lst
 
+doc:
+	dune build @doc
+
+opendoc: doc
+	@bash opendoc.sh	
+
 clean:
 	dune clean
 	rm -f 2048.zip

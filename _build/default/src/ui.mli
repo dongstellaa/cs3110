@@ -1,3 +1,5 @@
+(** UI ascii elements. *)
+
 val start_game_cat : string
 (** A string of ascii characters that form the start game cat *)
 

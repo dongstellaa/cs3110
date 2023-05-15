@@ -1,3 +1,5 @@
+(** Handles overhead mechanics of the game. *)
+
 type move =
   | Up
   | Down

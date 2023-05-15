@@ -1,3 +1,5 @@
+(** Hangman game in hangman gamemode. *)
+
 val word_list : string list
 (** [word_list] is a list of all of the words that can be chosen for hangman*)
 
