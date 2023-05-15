@@ -12,18 +12,6 @@ let score = ref 0
    in
    shift_helper [] row *)
 
-let add_right (row : int list) : int list =
-  let rec addition (acc : int list) (r : int list) : int list =
-    match List.rev r with
-    | h1 :: h2 :: t when h1 = h2 ->
-        score := !score + (2 * h1);
-        addition (acc @ [ 2 * h1 ]) (t @ [ 0 ])
-    (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
-    | h :: t -> addition (acc @ [ h ]) t
-    | [] -> List.rev acc
-  in
-  addition [] row
-
 let add_left (row : int list) : int list =
   let rec addition (acc : int list) (r : int list) : int list =
     match r with
@@ -35,6 +23,19 @@ let add_left (row : int list) : int list =
     | [] -> acc
   in
   addition [] row
+
+let add_right (row : int list) : int list =
+  row |> List.rev |> add_left |> List.rev
+(* let rec addition (acc : int list) (r : int list) : int list =
+     match List.rev r with
+     | h1 :: h2 :: t when h1 = h2 ->
+         score := !score + (2 * h1);
+         addition ((2 * h1) :: acc) (t @ [ 0 ])
+     (* | h1 :: h2 :: t when h1 <> h2 -> addition (acc @ [ h1 ]) (h2 :: t) *)
+     | h :: t -> addition (h :: acc) t
+     | [] -> List.rev acc
+   in
+   addition [] row *)
 
 let delete_zeros row =
   let rec shift_helper acc r =
@@ -92,17 +93,6 @@ let down_shift_grid grid = grid |> transpose |> right_shift_grid |> transpose
 (* grid |> List.map List.rev |> transpose |> left_shift_grid |> transpose
    |> List.map List.rev *)
 
-let add_right_rev (row : int list) : int list =
-  let rec addition (acc : int list) (r : int list) : int list =
-    match List.rev r with
-    | h1 :: h2 :: t when h1 = h2 ->
-        score := !score + (h1 / 2);
-        addition (acc @ [ h1 / 2 ]) (t @ [ 0 ])
-    | h :: t -> addition (acc @ [ h ]) t
-    | [] -> List.rev acc
-  in
-  addition [] row
-
 let add_left_rev (row : int list) : int list =
   let rec addition (acc : int list) (r : int list) : int list =
     match r with
@@ -114,6 +104,9 @@ let add_left_rev (row : int list) : int list =
     | [] -> acc
   in
   addition [] row
+
+let add_right_rev (row : int list) : int list =
+  row |> List.rev |> add_left_rev |> List.rev
 
 let left_shift_rev row =
   match List.length (row |> delete_zeros) with

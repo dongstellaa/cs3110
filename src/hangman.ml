@@ -26,7 +26,16 @@ let word_list =
     "cuddle";
     "catnip";
     "kitty";
-    "bigboy";
+    "big boy";
+    "meoww";
+    "puss in boots";
+    "tabby";
+    "tiger";
+    "furball";
+    "lion";
+    "cheetah";
+    "panther";
+    "puma";
   ]
 
 let is_alpha = function 'a' .. 'z' | 'A' .. 'Z' -> true | _ -> false
