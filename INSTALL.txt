@@ -2,8 +2,18 @@ To Run 2048:
 - In your powershell, go to the root directory of the folder.
 - Run dune build
 - Then run: make play
-- Currently only the left and right controls work (a and d), and quitting! The
-board also doesn't add new numbers, so we've created multiple working grids in 
-src/main.ml if you'd like to change which grid is run (by commenting out the others). Or make your own.
+- Follow as prompted! If unclear:
+  - Selecting a gamemode:
+    - score mode = enter the score you want to play until.
+    - normal mode = get the 2048 tile to win
+    - easy mode = get the 512 tile to win
+    - reverse mode = start with the 2048 tile, combining tiles halves them. get
+      to 1 to win.
+    - invisible mode = only grid, no numbers, try to get 2048.
+    - hangman mode = a round of hangman initiates after every move. lose hangman
+      and you lose the game, try to get 2048.
+    - unlimited = like the classic game, play until you lose.
+  - only wasd works as moves. 
+  - after you win or lose, hit q to quit. nothing else will work.
 
 ty!
